@@ -10,6 +10,7 @@ module.exports = {
 	"jernbanestasjon": {
             "source": "outdoors", 
             "layer": "jernbanestasjon",
+	    "size": 9,
             "type": "point"
         },
 	"flyplasspunkt_1": {
@@ -17,6 +18,7 @@ module.exports = {
             "layer": "flyplasspunkt",
             "field": "type",		//Tror dette er nærmere utvelgelseskriterie
             "value": 1,
+	    "size": 12,			//Av en eller annen grunn må størrelsen for punkter oppgis her og ikke i classes
             "type": "point"
         },
 	"flyplasspunkt_2": {
@@ -24,6 +26,7 @@ module.exports = {
             "layer": "flyplasspunkt",
             "field": "type",
             "value": 2,
+	    "size": 9,		//Kunne også lagt inn "icon": "airport" for å bruke ferdiglagd ikon
             "type": "point"
         },
 	"flyplasspunkt_3": {
@@ -31,6 +34,7 @@ module.exports = {
             "layer": "flyplasspunkt",
             "field": "type",
             "value": 3,
+	    "size": 6,
             "type": "point"
         },
 	"admingrense_Riks": {
@@ -85,15 +89,15 @@ module.exports = {
             "bucket": "jernbanestasjon"	
         },
 	{
-            "name": "flyplasspunkt_1", 
+            "name": "flyplasspunkt_all", 
             "bucket": "flyplasspunkt_1"	
         },
 	{
-            "name": "flyplasspunkt_2", 
+            "name": "flyplasspunkt_all", 
             "bucket": "flyplasspunkt_2"	
         },
 	{
-            "name": "flyplasspunkt_3", 
+            "name": "flyplasspunkt_all", 
             "bucket": "flyplasspunkt_3"	
         },
 	{
@@ -136,20 +140,10 @@ module.exports = {
                     "width": 5
                 },
 		"jernbanestasjon": {
-                    "color": "rgba(187,68,136, 0.9)",
-                    "width": 6.0
+                    "color": "rgba(187,68,136, 0.9)"
                 },
-		"flyplasspunkt_1": {
+		"flyplasspunkt_all": {
                     "color": "flyplasspunkt",
-                    "width": 12.0
-                },
-		"flyplasspunkt_2": {
-                    "color": "flyplasspunkt",
-                    "width": 9.0
-                },
-		"flyplasspunkt_3": {
-                    "color": "flyplasspunkt",
-                    "width": 6.0
                 },
 		"admingrense_Riks": {
                     "color": "admingrense",
