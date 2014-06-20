@@ -10,8 +10,23 @@ module.exports = {
 	"jernbanestasjon": {
             "source": "outdoors", 
             "layer": "jernbanestasjon",
+	    "icon": "airport",
 	    "size": 9,
             "type": "point"
+        },
+	"jernbanestasjon_label": {
+            "source": "outdoors", 
+            "layer": "jernbanestasjon",
+            "text_field": "{{navn}}",
+            "path": "horizontal",
+            "padding": 1,
+            "maxWidth": 10,
+            "verticalAlignment": "top",
+            "translate": [0, -1],
+            "font": "Open Sans Semibold, Arial Unicode MS Bold",
+            "fontSize": 12,
+            "feature_type": "point",
+            "type": "text"
         },
 	"flyplasspunkt_1": {
             "source": "outdoors", 
@@ -81,12 +96,12 @@ module.exports = {
             "bucket": "bane"	//objektet, flere regler kan assosieres til samme objekt
         },
 	{
-            "name": "bane_Bane_skravur", 
-            "bucket": "bane"	
-        },
-	{
             "name": "jernbanestasjon", 
             "bucket": "jernbanestasjon"	
+        },
+	{
+            "name": "jernbanestasjon_label", 
+            "bucket": "jernbanestasjon_label"	
         },
 	{
             "name": "flyplasspunkt_all", 
@@ -121,7 +136,12 @@ module.exports = {
         "land": "rgb(244,239,225)",
         "water": "#cdd",
 	"admingrense": "rgba(102,165,168,0.6)",
-	"flyplasspunkt": "rgba(100,200,100,0.9)"
+	"flyplasspunkt": "rgba(100,200,100,0.9)",
+        "poi_label_3_size": [
+            "stops",
+            {"z": 12, "val": 10},
+            {"z": 17, "val": 12}
+        ]
     },
     "classes": [ //Classes er samlinger av tegneregler, det vil si tema/tegneregelsett det kan skiftes mellom
         {
@@ -129,7 +149,14 @@ module.exports = {
             "layers": {	//Tegneregel
                 "bane_Bane": {
                     "color": "rgba(168,110,138,0.8)",
-                    "width": 3.0
+                    "width": [
+                        "stops",
+                        {"z": 12, "val": 3},
+                        {"z": 12.25, "val": 4},
+                        {"z": 14.25, "val": 5},
+                        {"z": 16.25, "val": 6},
+                        {"z": 18.25, "val": 7}
+                    ]
                 },
 		"bane_Bane_skravur": {
                     "color": "#000000",
@@ -141,6 +168,18 @@ module.exports = {
                 },
 		"jernbanestasjon": {
                     "color": "rgba(187,68,136, 0.9)"
+                },
+		"jernbanestasjon_label": {
+                    "color": "#444",
+                    "size": "poi_label_3_size",
+                    "stroke": "land",
+                    "strokeWidth": 0.3,
+                    "strokeBlur": 1,
+                    "opacity": [
+                        "stops",
+                        {"z": 11, "val": 0},
+                        {"z": 11.5, "val": 1}
+                    ]
                 },
 		"flyplasspunkt_all": {
                     "color": "flyplasspunkt",
@@ -162,7 +201,12 @@ module.exports = {
                     "width": 1.0
                 },
 		"TettBebyggelse": {
-                    "color": "rgba(56,79,89,0.4)"
+                    "color": "rgba(56,79,89,0.4)",
+		     "opacity": [
+                        "stops",
+                        {"z": 11, "val": 0},
+                        {"z": 12, "val": 1}
+                    ]
                 }
             }
         }
