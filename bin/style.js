@@ -10,8 +10,6 @@ module.exports = {
 	"jernbanestasjon": {
             "source": "outdoors", 
             "layer": "jernbanestasjon",
-            "field": "objtype",
-            "value": "Stasjon",
             "type": "point"
         },
 	"flyplasspunkt_1": {
@@ -70,7 +68,11 @@ module.exports = {
         }
     },
     "structure": [ //Structure angir hvilken objekttype (bucket) som assosieres med hvilken tegneregel.
-        {
+	{
+            "name": "TettBebyggelse", 	//Av ukjent grunn måtte denne flyttes først for at jernbanestasjon skulle la seg tegne. Sammenheng med at det er en flate?
+            "bucket": "TettBebyggelse"	
+        },
+	{
             "name": "bane_Bane", //Tegneregelen, flere objekter kan assosieres med samme regel
             "bucket": "bane"	//objektet, flere regler kan assosieres til samme objekt
         },
@@ -109,10 +111,6 @@ module.exports = {
 	{
             "name": "admingrense_Kommune", 
             "bucket": "admingrense_Kommune"	
-        },
-	{
-            "name": "TettBebyggelse", 
-            "bucket": "TettBebyggelse"	
         }
     ],
     "constants": { //Er konstantverdier som kan refereres fra tegneregler
